@@ -17,7 +17,11 @@ def user(name):
 def admin():
     return redirect(url_for("home"))
 
-@app.route("/",methods=['POST'])
+@app.route('/')
+def predictHome():
+    render_template('index.html')
+
+@app.route("/predict",methods=['POST'])
 def predict():
     float_features = [float(x) for x in request.form.values()]
     final_features = [np.array(float_features)]
