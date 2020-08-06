@@ -5,6 +5,7 @@ from flask import Flask, redirect, url_for,render_template, request, jsonify
 app = Flask(__name__)
 model = pickle.load(open('lrmodel.pkl','rb'))
 
+'''
 @app.route("/home")
 def home():
     return render_template("index.html")
@@ -16,10 +17,10 @@ def user(name):
 @app.route("/admin")
 def admin():
     return redirect(url_for("home"))
-
+'''
 @app.route('/')
-def predictHome():
-    render_template('index.html')
+def home():
+    return render_template('index.html')
 
 @app.route("/predict",methods=['POST'])
 def predict():
